@@ -1,0 +1,13 @@
+version: '2'
+services:
+  oc.spring.demo.db_ticket:
+    image: postgres
+    volumes:
+      - "../db/db_ticket/01_create_db_ticket.sql:/docker-entrypoint-initdb.d/01.sql"
+      - "../db/db_ticket/10_insert_data_db_ticket.sql:/docker-entrypoint-initdb.d/10.sql"
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_DB=db_ticket
+      - POSTGRES_USER=ticket
+      - POSTGRES_PASSWORD=ticket

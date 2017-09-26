@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- =============================================================== -->
+    <!-- Informations du projet -->
+    <!-- =============================================================== -->
+    <!-- ===== Projet Parent Maven ===== -->
+    <parent>
+        <groupId>org.example.demo</groupId>
+        <artifactId>ticket</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!-- ===== Informations Maven ===== -->
+    <artifactId>ticket-technical</artifactId>
+
+    <!-- ===== Informations générales ===== -->
+    <name>${projectName} - Technical</name>
+
+
+    <!-- =============================================================== -->
+    <!-- Dépendances -->
+    <!-- =============================================================== -->
+    <dependencies>
+        <!-- ===== Bibliothèques tierces ===== -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+        </dependency>
+
+        <!-- ===== Tests ===== -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+</project>

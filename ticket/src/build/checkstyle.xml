@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<module name="Checker">
+  <property name="severity" value="warning"/>
+  <module name="TreeWalker">
+    <property name="tabWidth" value="4"/>
+    <module name="FileContentsHolder"/>
+
+
+            <module name="PackageName">
+                <metadata name="net.sf.eclipsecs.core.comment" value="NOM_PACKAGE"/>
+                <property name="id" value="NOM_PACKAGE"/>
+                <property name="severity" value="error"/>
+                <property name="format" value="^([a-z][a-zA-Z0-9]*)+(\.[a-z][a-zA-Z0-9]*)*$"/>
+            </module>
+
+
+
+            <module name="TypeName">
+                <metadata name="net.sf.eclipsecs.core.comment" value="NOM_CLASSE"/>
+                <property name="id" value="NOM_CLASSE"/>
+                <property name="severity" value="error"/>
+                <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+                <property name="tokens" value="CLASS_DEF"/>
+            </module>
+
+
+
+            <module name="MethodName">
+                <metadata name="net.sf.eclipsecs.core.comment" value="NOM_METHODE"/>
+                <property name="id" value="NOM_METHODE"/>
+                <property name="severity" value="error"/>
+                <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            </module>
+
+
+
+            <module name="ParameterName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_PARAM"/>
+              <property name="id" value="NOM_PARAM"/>
+              <property name="severity" value="info"/>
+              <property name="format" value="^p[A-Z][a-zA-Z0-9]*$"/>
+            </module>
+
+
+
+            <module name="LocalVariableName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_LOCAL_VAR"/>
+              <property name="id" value="NOM_LOCAL_VAR"/>
+              <property name="severity" value="info"/>
+              <property name="format" value="^v[A-Z][a-zA-Z0-9]*$"/>
+            </module>
+            <module name="LocalFinalVariableName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_LOCAL_VAR"/>
+              <property name="id" value="NOM_LOCAL_VAR"/>
+              <property name="severity" value="info"/>
+              <property name="format" value="^v[A-Z][a-zA-Z0-9]*$"/>
+            </module>
+
+
+
+            <module name="MemberName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_ATTRIBUT"/>
+              <property name="id" value="NOM_ATTRIBUT"/>
+              <property name="severity" value="error"/>
+              <property name="format" value="^[a-zA-Z0-9]*$"/>
+            </module>
+            <module name="StaticVariableName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_ATTRIBUT"/>
+              <property name="id" value="NOM_ATTRIBUT"/>
+              <property name="severity" value="error"/>
+              <property name="format" value="^[a-zA-Z0-9]*$"/>
+            </module>
+            <module name="ConstantName">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NOM_ATTRIBUT"/>
+              <property name="id" value="NOM_ATTRIBUT"/>
+              <property name="severity" value="error"/>
+              <property name="format" value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+            </module>
+
+
+
+            <module name="HiddenField">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_MASQUER_ATTRIBUT"/>
+              <property name="id" value="NO_MASQUER_ATTRIBUT"/>
+              <property name="severity" value="error"/>
+              <property name="ignoreConstructorParameter" value="true"/>
+              <property name="ignoreSetter" value="true"/>
+            </module>
+
+
+
+            <module name="LineLength">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+              <property name="ignorePattern" value="^import\s"/>
+              <property name="max" value="120"/>
+              <property name="tabWidth" value="4"/>
+            </module>
+            <module name="WhitespaceAround">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+            <property name="tokens"
+                      value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,DO_WHILE,EQUAL,GE,GT,LAND,LE,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,TYPE_EXTENSION_AND"/>
+            </module>
+            <module name="NoWhitespaceBefore">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+            </module>
+            <module name="LeftCurly">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+              <property name="maxLineLength" value="120"/>
+            </module>
+            <module name="RightCurly">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+            </module>
+            <module name="ParenPad">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+            </module>
+            <module name="WhitespaceAfter">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+              <property name="tokens" value="COMMA"/>
+            </module>
+            <module name="Indentation">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="severity" value="error"/>
+              <property name="basicOffset" value="4"/>
+              <property name="caseIndent" value="4"/>
+              <property name="lineWrappingIndentation" value="0"/>
+            </module>
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMATAGE_CODE"/>
+              <property name="id" value="FORMATAGE_CODE"/>
+              <property name="message" value="Utiliser des espaces pour l''indentation."/>
+              <property name="severity" value="error"/>
+              <property name="format" value="^ *\t+"/>
+            </module>
+
+
+
+            <module name="NeedBraces">
+              <metadata name="net.sf.eclipsecs.core.comment" value="BLOC_ACCOL_OBLIG"/>
+              <property name="severity" value="warning"/>
+              <property name="id" value="BLOC_ACCOL_OBLIG"/>
+            </module>
+
+
+
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NBR_INSTR_LIGNE"/>
+              <property name="id" value="NBR_INSTR_LIGNE"/>
+              <property name="message" value="Mettre une seule instruction par ligne."/>
+              <property name="severity" value="info"/>
+              <property name="format" value="^[\s\t]*(?!for )([^\s\t]+.*;.*;)"/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+
+
+
+            <module name="MultipleVariableDeclarations">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_DECLAR_MULTI"/>
+              <property name="id" value="NO_DECLAR_MULTI"/>
+              <property name="severity" value="info"/>
+            </module>
+
+
+
+            <module name="ArrayTypeStyle">
+              <metadata name="net.sf.eclipsecs.core.comment" value="DECLAR_TABLEAU"/>
+              <property name="severity" value="warning"/>
+              <property name="id" value="DECLAR_TABLEAU"/>
+            </module>
+
+
+
+            <module name="UpperEll">
+              <metadata name="net.sf.eclipsecs.core.comment" value="LONG_SUFFIX_GRAND_L"/>
+              <property name="severity" value="warning"/>
+              <property name="id" value="LONG_SUFFIX_GRAND_L"/>
+            </module>
+
+
+
+        <!--
+            <module name="JavadocType">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMAT_JAVADOC"/>
+              <property name="id" value="FORMAT_JAVADOC"/>
+              <property name="severity" value="error"/>
+              <property name="authorFormat" value=".+"/>
+            </module>
+            <module name="JavadocMethod">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMAT_JAVADOC"/>
+              <property name="id" value="FORMAT_JAVADOC"/>
+              <property name="severity" value="error"/>
+              <property name="allowUndeclaredRTE" value="true"/>
+              <property name="allowThrowsTagsForSubclasses" value="true"/>
+              <property name="allowMissingPropertyJavadoc" value="true"/>
+              <property name="suppressLoadErrors" value="true"/>
+            </module>
+        -->
+            <module name="JavadocStyle">
+              <metadata name="net.sf.eclipsecs.core.comment" value="FORMAT_JAVADOC"/>
+              <property name="id" value="FORMAT_JAVADOC"/>
+              <property name="severity" value="error"/>
+              <property name="checkEmptyJavadoc" value="true"/>
+              <property name="checkFirstSentence" value="false"/>
+            </module>
+
+
+
+            <module name="JavaNCSS">
+              <metadata name="net.sf.eclipsecs.core.comment" value="TAUX_DOCUMENTATION"/>
+              <property name="id" value="TAUX_DOCUMENTATION"/>
+              <property name="severity" value="info"/>
+              <property name="methodMaximum" value="50"/>
+              <property name="fileMaximum" value="1500"/>
+            </module>
+
+
+
+            <module name="ClassDataAbstractionCoupling">
+              <metadata name="net.sf.eclipsecs.core.comment" value="COUPLAGE_CLASSE"/>
+              <property name="id" value="COUPLAGE_CLASSE"/>
+              <property name="severity" value="info"/>
+            </module>
+            <module name="ClassFanOutComplexity">
+              <metadata name="net.sf.eclipsecs.core.comment" value="COUPLAGE_CLASSE"/>
+              <property name="id" value="COUPLAGE_CLASSE"/>
+              <property name="severity" value="info"/>
+            </module>
+
+
+
+          	<!-- Hors du TreeWalker
+            <module name="FileLength">
+              <metadata name="net.sf.eclipsecs.core.comment" value="LONG_FICHIER"/>
+              <property name="id" value="LONG_FICHIER"/>
+              <property name="severity" value="info"/>
+              <property name="max" value="2000"/>
+            </module>
+            -->
+
+
+
+            <module name="MethodLength">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="150"/>
+            </module>
+            <module name="ExecutableStatementCount">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="30"/>
+              <property name="tokens" value="INSTANCE_INIT,STATIC_INIT,METHOD_DEF,CTOR_DEF"/>
+            </module>
+            <module name="CyclomaticComplexity">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="10"/>
+            </module>
+            <module name="NestedIfDepth">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="3"/>
+            </module>
+            <module name="ParameterNumber">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="7"/>
+              <property name="tokens" value="METHOD_DEF"/>
+            </module>
+            <module name="NPathComplexity">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_METHODE"/>
+              <property name="id" value="CPLX_METHODE"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="200"/>
+            </module>
+
+
+
+            <module name="BooleanExpressionComplexity">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CPLX_EXPR_BOOL"/>
+              <property name="id" value="CPLX_EXPR_BOOL"/>
+              <property name="severity" value="error"/>
+              <property name="max" value="6"/>
+            </module>
+
+
+
+            <module name="InnerAssignment">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_ASSIGN_MULTI"/>
+              <property name="severity" value="warning"/>
+              <property name="id" value="NO_ASSIGN_MULTI"/>
+            </module>
+
+
+
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="OPER_INCR_SEUL"/>
+              <property name="id" value="OPER_INCR_SEUL"/>
+              <property name="message" value="Les opérateurs '++' et '--' doivent être utilisés seuls."/>
+              <property name="severity" value="error"/>
+            <property name="format"
+                      value="([^a-zA-Z0-9_\s\t;]+[\s\t]*[a-zA-Z0-9_]+(\+|-){2})|(; [a-zA-Z0-9_]+(\+|-){2}[^\)]+.*$)|(^[\s\t]*[a-zA-Z0-9_]+(\+|-){2}[^;]+.*$)|([a-zA-Z0-9_]+(\+|-){2}[\s\t]*$)"/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="OPER_INCR_SEUL"/>
+              <property name="id" value="OPER_INCR_SEUL"/>
+              <property name="message" value="Les opérateurs '++' et '--' doivent être utilisés seuls."/>
+              <property name="severity" value="error"/>
+            <property name="format"
+                      value="(.+(\+|-){2}[a-zA-Z0-9_]+)|((\+|-){2}[a-zA-Z0-9_]+[^;]+.*$)|(^(\+|-){2}[a-zA-Z0-9_]+$)"/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+
+
+
+            <module name="NestedTryDepth">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_TRY_IMBRIQ"/>
+              <property name="id" value="NO_TRY_IMBRIQ"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="0"/>
+            </module>
+
+
+
+            <module name="AvoidNestedBlocks">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_BLOC_ANONYM"/>
+              <property name="id" value="NO_BLOC_ANONYM"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="FallThrough">
+              <metadata name="net.sf.eclipsecs.core.comment" value="SWITCH_BREAK_OBLIG"/>
+              <property name="severity" value="warning"/>
+              <property name="id" value="SWITCH_BREAK_OBLIG"/>
+            </module>
+
+
+
+            <module name="MissingSwitchDefault">
+              <metadata name="net.sf.eclipsecs.core.comment" value="SWITCH_DEFAULT_OBLIG"/>
+              <property name="id" value="SWITCH_DEFAULT_OBLIG"/>
+              <property name="severity" value="error"/>
+            </module>
+            <module name="DefaultComesLast">
+              <metadata name="net.sf.eclipsecs.core.comment" value="SWITCH_DEFAULT_OBLIG"/>
+              <property name="id" value="SWITCH_DEFAULT_OBLIG"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_CONTINUE"/>
+              <property name="id" value="NO_CONTINUE"/>
+              <property name="message" value="L'instruction 'continue' est interdite."/>
+              <property name="severity" value="error"/>
+              <property name="format" value="\bcontinue\b"/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+
+
+
+            <module name="ModifiedControlVariable">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_MODIF_INDICE_BOUCLE"/>
+              <property name="id" value="NO_MODIF_INDICE_BOUCLE"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="ReturnCount">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NBR_RETURN_MAX"/>
+              <property name="id" value="NBR_RETURN_MAX"/>
+              <property name="severity" value="warning"/>
+              <property name="max" value="1"/>
+            </module>
+
+
+
+            <module name="CovariantEquals">
+              <metadata name="net.sf.eclipsecs.core.comment" value="REDEF_EQUALS_OBJ"/>
+              <property name="id" value="REDEF_EQUALS_OBJ"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="SuperClone">
+              <metadata name="net.sf.eclipsecs.core.comment" value="REDEF_CLONE_APPEL_SUPERCLONE"/>
+              <property name="id" value="REDEF_CLONE_APPEL_SUPERCLONE"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="EqualsHashCode">
+              <metadata name="net.sf.eclipsecs.core.comment" value="REDEF_EQUALS_REDEF_HASHCODE"/>
+              <property name="id" value="REDEF_EQUALS_REDEF_HASHCODE"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="InnerAssignment">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_ASSIGN_APPEL_COND"/>
+              <property name="id" value="NO_ASSIGN_APPEL_COND"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="ParameterAssignment">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_ASSIGN_PARAM"/>
+              <property name="id" value="NO_ASSIGN_PARAM"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="EmptyBlock">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_CATCH_VIDE"/>
+              <property name="id" value="NO_CATCH_VIDE"/>
+              <property name="option" value="text"/>
+              <property name="tokens" value="LITERAL_CATCH"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="IllegalCatch">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_CATCH_TYPE_EXCEPT"/>
+              <property name="id" value="NO_CATCH_TYPE_EXCEPT"/>
+              <property name="severity" value="info"/>
+            </module>
+
+
+
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_SYSTEM_PRINT"/>
+              <property name="id" value="NO_SYSTEM_PRINT"/>
+              <property name="message" value="L'utilisation des 'System.out.print...' est interdite."/>
+              <property name="severity" value="error"/>
+              <property name="format" value="\bSystem\.out\.print"/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+            <module name="RegexpSinglelineJava">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_SYSTEM_PRINT"/>
+              <property name="id" value="NO_SYSTEM_PRINT"/>
+              <property name="message" value="L'utilisation des 'exception.printStackTrace(...)' est interdite."/>
+              <property name="severity" value="error"/>
+              <property name="format" value="\.printStackTrace\("/>
+              <property name="ignoreComments" value="true"/>
+            </module>
+
+
+
+            <module name="UnusedImports">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_IMPORT_INUTIL"/>
+              <property name="id" value="NO_IMPORT_INUTIL"/>
+              <property name="severity" value="error"/>
+            </module>
+            <module name="AvoidStarImport">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_IMPORT_INUTIL"/>
+              <property name="id" value="NO_IMPORT_INUTIL"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <module name="RedundantImport">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_IMPORT_REDONDANT"/>
+              <property name="id" value="NO_IMPORT_REDONDANT"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="MagicNumber">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NUMERIC_CONST_OBLIG"/>
+              <property name="id" value="NUMERIC_CONST_OBLIG"/>
+              <property name="severity" value="error"/>
+              <property name="ignoreNumbers" value="-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10"/>
+              <property name="ignoreAnnotation" value="true"/>
+            </module>
+
+
+
+            <module name="EmptyBlock">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_BLOC_VIDE"/>
+              <property name="id" value="NO_BLOC_VIDE"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="EmptyStatement">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_INSTR_VIDE"/>
+              <property name="id" value="NO_INSTR_VIDE"/>
+              <property name="severity" value="error"/>
+            </module>
+
+
+
+            <!-- N'est plus disponible dans Checkstyle 6.2 -->
+            <!--
+            <module name="RedundantThrows">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_THROWS_INUTIL"/>
+              <property name="id" value="NO_THROWS_INUTIL"/>
+              <property name="severity" value="error"/>
+              <property name="suppressLoadErrors" value="true"/>
+            </module>
+            -->
+
+
+
+            <module name="SimplifyBooleanExpression">
+              <metadata name="net.sf.eclipsecs.core.comment" value="SIMPL_EXPR_BOOL"/>
+              <property name="id" value="SIMPL_EXPR_BOOL"/>
+              <property name="severity" value="warning"/>
+            </module>
+            <module name="SimplifyBooleanReturn">
+              <metadata name="net.sf.eclipsecs.core.comment" value="SIMPL_EXPR_BOOL"/>
+              <property name="id" value="SIMPL_EXPR_BOOL"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="IllegalImport">
+              <metadata name="net.sf.eclipsecs.core.comment" value="IMPORT_INTERDIT"/>
+              <property name="id" value="IMPORT_INTERDIT"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="IllegalType">
+              <metadata name="net.sf.eclipsecs.core.comment" value="DECLAR_TYPE_INTERDIT"/>
+              <property name="id" value="DECLAR_TYPE_INTERDIT"/>
+              <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
+              <property name="format" value="^$"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+        <!--
+            <module name="MissingCtor">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CONSTR_OBLIG"/>
+              <property name="id" value="CONSTR_OBLIG"/>
+              <property name="severity" value="warning"/>
+            </module>
+        -->
+
+
+
+            <module name="HideUtilityClassConstructor">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_CLAS_UTIL_CONSTR_PUBLIC"/>
+              <property name="id" value="NO_CLAS_UTIL_CONSTR_PUBLIC"/>
+              <property name="severity" value="info"/>
+            </module>
+
+
+
+            <module name="FinalClass">
+              <metadata name="net.sf.eclipsecs.core.comment" value="CLASSE_FINAL"/>
+              <property name="id" value="CLASSE_FINAL"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="VisibilityModifier">
+              <metadata name="net.sf.eclipsecs.core.comment" value="ENCAPSULER_ATTR"/>
+              <property name="id" value="ENCAPSULER_ATTR"/>
+              <property name="severity" value="error"/>
+              <property name="protectedAllowed" value="true"/>
+            </module>
+
+
+
+            <module name="ModifierOrder">
+              <metadata name="net.sf.eclipsecs.core.comment" value="ORDRE_MODIFIER"/>
+              <property name="id" value="ORDRE_MODIFIER"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="InterfaceIsType">
+              <metadata name="net.sf.eclipsecs.core.comment" value="NO_CONST_SEUL_INTERFACE"/>
+              <property name="id" value="NO_CONST_SEUL_INTERFACE"/>
+              <property name="severity" value="warning"/>
+            </module>
+
+
+
+            <module name="TodoComment">
+              <metadata name="net.sf.eclipsecs.core.comment" value="UTIL_TODO"/>
+              <property name="id" value="UTIL_TODO"/>
+              <property name="format" value="(/|\*)(\s|\t)*((?i:(@)?todo)|(?i:to\sdo)|(?i:a\sfaire)|(?i:à\sfaire))\b"/>
+              <property name="severity" value="warning"/>
+            </module>
+  </module>
+  <module name="Translation"/>
+  <module name="FileLength">
+    <metadata name="net.sf.eclipsecs.core.comment" value="LONG_FICHIER"/>
+    <property name="id" value="LONG_FICHIER"/>
+    <property name="severity" value="info"/>
+    <property name="max" value="2000"/>
+  </module>
+</module>
