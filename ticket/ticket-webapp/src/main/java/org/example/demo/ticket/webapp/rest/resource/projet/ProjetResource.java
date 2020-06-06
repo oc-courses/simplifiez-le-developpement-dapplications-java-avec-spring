@@ -1,15 +1,17 @@
 package org.example.demo.ticket.webapp.rest.resource.projet;
 
 import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.example.demo.ticket.business.manager.ProjetManager;
+import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
+import org.example.demo.ticket.webapp.rest.resource.AbstractResource;
 
 
 /**
@@ -19,7 +21,7 @@ import org.example.demo.ticket.model.exception.NotFoundException;
  */
 @Path("/projets")
 @Produces(MediaType.APPLICATION_JSON)
-public class ProjetResource {
+public class ProjetResource extends AbstractResource{
 
     /**
      * Renvoie le {@link Projet} d'identifiant {@code pId}
@@ -31,7 +33,7 @@ public class ProjetResource {
     @GET
     @Path("{id}")
     public Projet get(@PathParam("id") Integer pId) throws NotFoundException {
-        ProjetManager vProjetManager = new ProjetManager();
+        ProjetManager vProjetManager = getManagerFactory().getProjetManager();
         Projet vProjet = vProjetManager.getProjet(pId);
         return vProjet;
     }
@@ -44,7 +46,7 @@ public class ProjetResource {
      */
     @GET
     public List<Projet> get() {
-        ProjetManager vProjetManager = new ProjetManager();
+        ProjetManager vProjetManager = getManagerFactory().getProjetManager();
         List<Projet> vListProjet = vProjetManager.getListProjet();
         return vListProjet;
     }

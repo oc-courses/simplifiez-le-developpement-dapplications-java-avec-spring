@@ -1,9 +1,10 @@
-package org.example.demo.ticket.business.manager;
+package org.example.demo.ticket.business.manager.impl;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.example.demo.ticket.business.manager.contract.TicketManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.bean.ticket.Bug;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
@@ -17,7 +18,7 @@ import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
  *
  * @author lgu
  */
-public class TicketManager {
+public class TicketManagerImpl implements TicketManager {
 
     /**
      * Cherche et renvoie le {@link Ticket} numéro {@code pNumero}
@@ -26,7 +27,8 @@ public class TicketManager {
      * @return Le {@link Ticket}
      * @throws NotFoundException Si le Ticket n'est pas trouvé
      */
-    public Ticket getTicket(Long pNumero) throws NotFoundException {
+    @Override
+	public Ticket getTicket(Long pNumero) throws NotFoundException {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
         if (pNumero < 1L) {
@@ -44,7 +46,8 @@ public class TicketManager {
      * @param pRechercheTicket -
      * @return List
      */
-    public List<Ticket> getListTicket(RechercheTicket pRechercheTicket) {
+    @Override
+	public List<Ticket> getListTicket(RechercheTicket pRechercheTicket) {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
         List<Ticket> vList = new ArrayList<>();
@@ -71,7 +74,8 @@ public class TicketManager {
      * @param pRechercheTicket -
      * @return int
      */
-    public int getCountTicket(RechercheTicket pRechercheTicket) {
+    @Override
+	public int getCountTicket(RechercheTicket pRechercheTicket) {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
         return 42;
