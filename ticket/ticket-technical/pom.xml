@@ -47,7 +47,16 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-jcl</artifactId>
         </dependency>
-
+        <!-- ====== SPRING CONTEXT =====-->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		</dependency>
+        <!-- ====== JSR330 =====-->
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+		</dependency>
         <!-- ===== Tests ===== -->
         <dependency>
             <groupId>junit</groupId>

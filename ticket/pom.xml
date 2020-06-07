@@ -172,12 +172,18 @@
             <!-- https://mvnrepository.com/artifact/org.springframework/spring -->
 			<dependency>
 			    <groupId>org.springframework</groupId>
-			    <artifactId>spring</artifactId>
-			    <version>5.2.6.RELEASE</version>
+			    <artifactId>spring-framework-bom</artifactId>
+			    <version>${spring.version}</version>
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
-            
+ 			<!-- ===== Bibliothèques tierces ===== -->
+			<!-- JSR-330 -->
+			<dependency>
+			    <groupId>javax.inject</groupId>
+			    <artifactId>javax.inject</artifactId>
+			    <version>1</version>
+		    </dependency>            
         </dependencies>
     </dependencyManagement>
 
