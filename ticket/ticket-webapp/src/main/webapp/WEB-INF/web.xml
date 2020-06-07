@@ -14,13 +14,5 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/bootStrapContext.xml</param-value>
 	</context-param>
-	
-	<!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext
-        instead of the default XmlWebApplicationContext -->
-    <context-param>
-        <param-name>contextClass</param-name>
-        <param-value>
-            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-        </param-value>
-    </context-param>
+		
 </web-app>
