@@ -6,7 +6,7 @@ import org.example.demo.ticket.business.manager.factory.contract.ManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("managerFactory")
 public class ManagerFactoryImpl implements ManagerFactory {
 	
 	@Autowired

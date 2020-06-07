@@ -43,7 +43,7 @@ public class Main {
             if ("ExportTicketStatus".equals(vTraitementId)) {
             	
                 LOGGER.info("Execution du traitement : ExportTicketStatus");
-                ManagerFactory vMgrFct = appCtx.getBean("managerFactoryImpl", ManagerFactory.class);
+                ManagerFactory vMgrFct = appCtx.getBean("managerFactory", ManagerFactory.class);
                 
                 int beansCnt = appCtx.getBeanDefinitionCount();
                 LOGGER.info("Number of Beans: "+beansCnt);

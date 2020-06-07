@@ -13,7 +13,7 @@
 	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass" value="org.example.demo.ticket.webapp.rest.resource.AbstractResource" />
 		<property name="targetMethod" value="setManagerFactory" />
-		<property name="arguments" ref="managerFactoryImpl" />
+		<property name="arguments" ref="managerFactory" />
 	</bean>
 
 </beans>
