@@ -9,7 +9,6 @@ import javax.inject.Named;
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
-import org.springframework.stereotype.Component;
 
 
 /**

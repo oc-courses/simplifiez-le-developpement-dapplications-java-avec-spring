@@ -41,7 +41,6 @@ public class Evolution extends Ticket {
     @Override
     public String toString() {
         final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());
-        final String vSEP = ", ";
         vStB.append(" {")
 
             .append('(')
