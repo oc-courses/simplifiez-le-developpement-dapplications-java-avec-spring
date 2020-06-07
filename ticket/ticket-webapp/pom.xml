@@ -79,12 +79,6 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-web</artifactId>
 		</dependency>
-		
-		<!-- JSR-330 -->
-		<dependency>
-		    <groupId>javax.inject</groupId>
-		    <artifactId>javax.inject</artifactId>
-		    </dependency>
 
         <!-- ===== Tests ===== -->
         <dependency>

@@ -52,11 +52,6 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context</artifactId>
 		</dependency>
-        <!-- ====== JSR330 =====-->
-		<dependency>
-		    <groupId>javax.inject</groupId>
-		    <artifactId>javax.inject</artifactId>
-		</dependency>
         <!-- ===== Tests ===== -->
         <dependency>
             <groupId>junit</groupId>
