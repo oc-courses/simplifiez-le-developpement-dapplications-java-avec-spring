@@ -48,12 +48,8 @@ public class ProjetManagerImpl extends AbstractManager implements ProjetManager{
 	public List<Projet> getListProjet() {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
-        List<Projet> vList = new ArrayList<>();
-        for (int vI = 0; vI < 9; vI++) {
-            Projet vProjet = new Projet(vI);
-            vProjet.setNom("Projet n°" + vI);
-            vList.add(vProjet);
-        }
+        List<Projet> vList = getDaoFact().getProjetDao().getListProjets();
+        
         return vList;
     }
 }

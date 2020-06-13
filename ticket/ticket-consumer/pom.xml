@@ -37,7 +37,10 @@
         </dependency>
 
         <!-- ===== Bibliothèques tierces ===== -->
-
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-jdbc</artifactId>
+        </dependency>
 
         <!-- ===== Tests ===== -->
         <dependency>
