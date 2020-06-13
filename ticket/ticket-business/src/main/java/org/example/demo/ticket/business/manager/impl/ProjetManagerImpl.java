@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class ProjetManagerImpl implements ProjetManager{
+public class ProjetManagerImpl extends AbstractManager implements ProjetManager{
 
     /**
      * Renvoie le projet demandé
