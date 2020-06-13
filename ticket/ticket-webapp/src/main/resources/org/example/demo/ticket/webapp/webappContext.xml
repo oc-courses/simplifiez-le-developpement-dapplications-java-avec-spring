@@ -7,7 +7,11 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	
+	<!-- Récupération de la ressource JNDI :
+         javax.sql.DataSource pour la base de données DB_TICKET -->
+    <bean id="dataSourceTicket" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/DB_TICKET" />
+    </bean>
 		
 	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass" value="org.example.demo.ticket.webapp.rest.resource.AbstractResource" />
