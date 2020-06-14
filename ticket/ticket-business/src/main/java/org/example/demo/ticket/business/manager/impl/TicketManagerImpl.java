@@ -6,7 +6,6 @@ import java.util.List;
 import org.example.demo.ticket.business.manager.contract.TicketManager;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
-import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 import org.springframework.stereotype.Component;
