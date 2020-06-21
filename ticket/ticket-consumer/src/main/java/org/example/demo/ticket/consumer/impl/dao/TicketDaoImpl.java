@@ -2,6 +2,7 @@ package org.example.demo.ticket.consumer.impl.dao;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -51,5 +52,37 @@ public class TicketDaoImpl  extends AbstractDao implements TicketDao {
         return ticketList;
         
     }
+
+	@Override
+	public Ticket getTicket(Long pNumero) {
+		
+		final String vSQL= "SELECT * FROM public.ticket WHERE 1=1";
+		StringBuilder vSQLBuilder = new StringBuilder(vSQL);
+		MapSqlParameterSource vParams = new MapSqlParameterSource();       
+//		LOGGER.info("################################ the Select- Command: "+vSQL);
+		
+		vSQLBuilder.append(" AND numero = :numero");
+        vParams.addValue("numero", pNumero); 
+        
+        RowMapper<Ticket> rowMapper = (ResultSet rs, int rowNum) -> {
+        	Ticket vTicket = new Evolution(rs.getLong("numero"));
+        	vTicket.setTitre(rs.getString("titre"));
+        	vTicket.setDate(rs.getDate("date"));
+        	vTicket.setDescription(rs.getString("description"));
+        	return vTicket;
+        };
+        
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        
+// Pose Problème si pas de resultats!!
+// pringframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+//        Ticket vTicket = vJdbcTemplate.queryForObject(vSQLBuilder.toString(), vParams, Ticket.class);
+        List<Ticket> vTickets = vJdbcTemplate.query(vSQLBuilder.toString(), vParams, rowMapper);
+        Optional<Ticket> optTicket = vTickets.stream().findFirst();
+        if (optTicket.isPresent()) {
+			return optTicket.get();
+		}
+		return null;
+	}
 
 }

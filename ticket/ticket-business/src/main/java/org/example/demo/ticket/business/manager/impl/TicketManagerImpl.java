@@ -35,9 +35,6 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
         }
         
         Ticket vTicket = getDaoFact().getTicketDao().getTicket(pNumero);
-        
-//        Evolution vEvolution = new Evolution(pNumero);
-//        vEvolution.setPriorite(10);
         return vTicket;
     }
 
