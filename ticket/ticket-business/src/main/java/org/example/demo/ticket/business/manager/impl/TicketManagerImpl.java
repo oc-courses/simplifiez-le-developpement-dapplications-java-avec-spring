@@ -33,9 +33,12 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
         if (pNumero < 1L) {
             throw new NotFoundException("Ticket non trouvé : numero=" + pNumero);
         }
-        Evolution vEvolution = new Evolution(pNumero);
-        vEvolution.setPriorite(10);
-        return vEvolution;
+        
+        Ticket vTicket = getDaoFact().getTicketDao().getTicket(pNumero);
+        
+//        Evolution vEvolution = new Evolution(pNumero);
+//        vEvolution.setPriorite(10);
+        return vTicket;
     }
 
 
