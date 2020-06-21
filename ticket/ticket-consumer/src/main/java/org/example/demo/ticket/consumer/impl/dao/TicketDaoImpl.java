@@ -1,12 +1,15 @@
 package org.example.demo.ticket.consumer.impl.dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.consumer.contract.dao.TicketDao;
+import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -34,9 +37,17 @@ public class TicketDaoImpl  extends AbstractDao implements TicketDao {
                 vParams.addValue("projet_id", pRechercheTicket.getProjetId());
             }
         }
-		
+        
+        RowMapper<Ticket> rowMapper = (ResultSet rs, int rowNum) -> {
+        	Ticket vTicket = new Evolution(rs.getLong("numero"));
+        	vTicket.setTitre(rs.getString("titre"));
+        	vTicket.setDate(rs.getDate("date"));
+        	vTicket.setDescription(rs.getString("description"));
+        	return vTicket;
+        };        
+        
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-        List<Ticket> ticketList = vJdbcTemplate.queryForList(vSQLBuilder.toString(), vParams, Ticket.class);
+        List<Ticket> ticketList = vJdbcTemplate.query(vSQLBuilder.toString(), vParams, rowMapper);
         return ticketList;
         
     }
