@@ -8,4 +8,6 @@ public interface ProjetDao {
 
 	List<Projet> getListProjets();
 
+	Projet getProjet(Integer pId);
+
 }
