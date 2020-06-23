@@ -15,7 +15,7 @@
 		    <property name="password" value="${jdbc.password}"/>
 		</bean>
 		
-		<context:property-placeholder location="file:${TICKET_HOME}/conf/db-ticket.properties"/>
+		<context:property-placeholder location="${TICKET_HOME}/conf/db-ticket.properties"/>
 
 
 </beans>
