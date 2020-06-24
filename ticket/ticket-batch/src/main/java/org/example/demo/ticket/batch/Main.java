@@ -1,14 +1,23 @@
 package org.example.demo.ticket.batch;
 
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.example.demo.ticket.business.manager.factory.contract.ManagerFactory;
+import org.example.demo.ticket.consumer.contract.dao.TicketDao;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 
 /**
@@ -20,6 +29,8 @@ public class Main {
 
     /** Logger pour la classe */
     private static final Log LOGGER = LogFactory.getLog(Main.class);
+    
+//    private static ConfigurableApplicationContext appCtx;
 
 
     /**
@@ -43,7 +54,17 @@ public class Main {
             if ("ExportTicketStatus".equals(vTraitementId)) {
             	
                 LOGGER.info("Execution du traitement : ExportTicketStatus");
-                ManagerFactory vMgrFct = appCtx.getBean("managerFactory", ManagerFactory.class);
+//                ManagerFactory vMgrFct = appCtx.getBean("managerFactory", ManagerFactory.class);
+                TicketDao vTicketDao = appCtx.getBean("ticketDao", TicketDao.class);
+                FileSystemResource vRes = appCtx.getBean("resourceTicket",FileSystemResource.class);
+                
+                List<String> statuts = vTicketDao.getTicketStatut().stream()
+                												   .map(TicketStatut::toString)
+                												   .collect(Collectors.toList());
+                writeStatut(vRes,statuts);
+                               
+                LOGGER.info("###### Nom du fichier: "+vRes.getFilename());
+                
                 
                 int beansCnt = appCtx.getBeanDefinitionCount();
                 LOGGER.info("Number of Beans: "+beansCnt);
@@ -62,4 +83,10 @@ public class Main {
 			appCtx.close();
 		}
     }
+
+	private static void writeStatut(Resource vRes, List<String> lines) throws IOException {
+		Files.write(Paths.get(vRes.getFilename()).toAbsolutePath(), lines, StandardCharsets.UTF_8);
+		
+	}    
+    
 }

@@ -15,7 +15,12 @@
 		    <property name="password" value="${jdbc.password}"/>
 		</bean>
 		
-		<context:property-placeholder location="file:${TICKET_HOME}/conf/db-ticket.properties"/>
+		<bean id="resourceTicket" class="org.springframework.core.io.FileSystemResource">
+			<constructor-arg type="java.lang.String" value="${export.filepath}"/>
+		</bean>
+		
+		<context:property-placeholder location="file:${TICKET_HOME}/conf/db-ticket.properties,
+												file:${TICKET_HOME}/conf/config.properties"/>
 
 
 </beans>

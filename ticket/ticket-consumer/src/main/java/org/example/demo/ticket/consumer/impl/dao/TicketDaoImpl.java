@@ -9,7 +9,9 @@ import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.consumer.contract.dao.TicketDao;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -83,6 +85,25 @@ public class TicketDaoImpl  extends AbstractDao implements TicketDao {
 			return optTicket.get();
 		}
 		return null;
+	}
+
+	@Override
+	public List<TicketStatut> getTicketStatut() {
+		
+		final String vSQL= "SELECT * FROM public.statut";
+//		LOGGER.info("################################ the Select- Command: "+vSQL);
+
+        
+        RowMapper<TicketStatut> rowMapper = (ResultSet rs, int rowNum) -> {
+        	TicketStatut vStatut = new TicketStatut(rs.getInt("id"));
+        	vStatut.setLibelle(rs.getString("libelle"));
+        	return vStatut;
+        };
+        
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        
+        List<TicketStatut> vStatuts = vJdbcTemplate.query(vSQL, rowMapper);
+        return vStatuts;
 	}
 
 }
