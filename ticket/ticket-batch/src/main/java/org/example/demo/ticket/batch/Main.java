@@ -85,8 +85,10 @@ public class Main {
     }
 
 	private static void writeStatut(Resource vRes, List<String> lines) throws IOException {
-		Files.write(Paths.get(vRes.getFilename()).toAbsolutePath(), lines, StandardCharsets.UTF_8);
-		
+//		Files.write(Paths.get(vRes.getFilename()).toAbsolutePath(), lines, StandardCharsets.UTF_8);
+		Files.write(Paths.get(vRes.getURI()), lines, StandardCharsets.UTF_8);
+		LOGGER.info("###### URI: "+vRes.getURI().toString());
+		LOGGER.info("###### File-Path: "+Paths.get(vRes.getFilename()).toAbsolutePath().toString());		
 	}    
     
 }

@@ -19,8 +19,8 @@
 			<constructor-arg type="java.lang.String" value="${export.filepath}"/>
 		</bean>
 		
-		<context:property-placeholder location="file:${TICKET_HOME}/conf/db-ticket.properties,
-												file:${TICKET_HOME}/conf/config.properties"/>
+		<context:property-placeholder location="file:${TICKET_HOME}/src/data/conf/db-ticket.properties,
+												file:${TICKET_HOME}/src/data/conf/config.properties"/>
 
 
 </beans>
