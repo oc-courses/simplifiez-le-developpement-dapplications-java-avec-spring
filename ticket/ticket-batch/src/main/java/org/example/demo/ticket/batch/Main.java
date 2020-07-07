@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.example.demo.ticket.consumer.contract.dao.TicketDao;
+import org.example.demo.ticket.business.manager.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -43,7 +43,10 @@ public class Main {
         
     	ConfigurableApplicationContext appCtx = 
         		new AnnotationConfigApplicationContext("org.example.demo.ticket");
-        
+    	
+    	ManagerFactory vMgrFct = appCtx.getBean("managerFactory", ManagerFactory.class);
+        FileSystemResource vRes = appCtx.getBean("resourceTicket",FileSystemResource.class);
+       
     	try {
             if (pArgs.length < 1) {
                 throw new TechnicalException("Veuillez préciser le traitement à effectuer !");
@@ -54,11 +57,10 @@ public class Main {
             if ("ExportTicketStatus".equals(vTraitementId)) {
             	
                 LOGGER.info("Execution du traitement : ExportTicketStatus");
-//                ManagerFactory vMgrFct = appCtx.getBean("managerFactory", ManagerFactory.class);
-                TicketDao vTicketDao = appCtx.getBean("ticketDao", TicketDao.class);
-                FileSystemResource vRes = appCtx.getBean("resourceTicket",FileSystemResource.class);
                 
-                List<String> statuts = vTicketDao.getTicketStatut().stream()
+                // le module batch ne parle qu'avec le module business donc pas
+                // d'appel direct d'un DAO !!!
+                List<String> statuts = vMgrFct.getTicketManager().getListTicketStatut().stream()
                 												   .map(TicketStatut::toString)
                 												   .collect(Collectors.toList());
                 writeStatut(vRes,statuts);

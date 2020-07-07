@@ -4,8 +4,8 @@ package org.example.demo.ticket.business.manager.impl;
 import java.util.List;
 
 import org.example.demo.ticket.business.manager.contract.TicketManager;
-import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 import org.springframework.stereotype.Component;
@@ -64,4 +64,15 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
         // Je mets juste un code temporaire pour commencer le cours...
         return 42;
     }
+
+
+	/**
+	 * Renvoie la liste de {@link TicketStatut} 
+	 *
+	 * @return List<TicketStatut>
+	 */
+	@Override
+	public List<TicketStatut> getListTicketStatut() {
+	    return getDaoFact().getTicketDao().getTicketStatut();
+	}
 }
