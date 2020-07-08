@@ -18,7 +18,4 @@
 		<property name="targetMethod" value="setManagerFactory" />
 		<property name="arguments" ref="managerFactory" />
 	</bean>
-	
-	<!--context:property-placeholder location="/srcjdbc.properties"/-->
-
 </beans>
