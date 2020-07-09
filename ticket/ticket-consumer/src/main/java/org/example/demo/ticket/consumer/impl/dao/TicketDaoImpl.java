@@ -16,11 +16,14 @@ import org.springframework.stereotype.Component;
 
 @Component("ticketDao")
 public class TicketDaoImpl  extends AbstractDao implements TicketDao {
-	private final static String vSQL_ALL_TICKETS = "SELECT * FROM public.ticket WHERE 1=1";
+	private final static String vSQL_ALL_TICKETS = "SELECT t.numero, t.titre, t.description, t.date, p.id as \"proj_id\", p.nom as \"proj_nom\"\r\n" + 
+			                                       "FROM public.ticket t, public.projet p\r\n" +
+			                                       "WHERE t.projet_id = p.id ";
+	
 	private final static String vSQL_ALL_STATUTS = "SELECT * FROM public.statut";
 
 	
-	   /** Logger pour la classe */
+	/** Logger pour la classe */
     private static final Log LOGGER = LogFactory.getLog(TicketDaoImpl.class);
 	
 	@Override
@@ -31,17 +34,21 @@ public class TicketDaoImpl  extends AbstractDao implements TicketDao {
 		LOGGER.info("################################ the Select- Command: "+vSQL_ALL_TICKETS);		
         if (pRechercheTicket != null) {
             if (pRechercheTicket.getAuteurId() != null) {
-            	vSQLBuilder.append(" AND auteur_id = :auteur_id");
+            	vSQLBuilder.append(" AND t.auteur_id = :auteur_id");
                 vParams.addValue("auteur_id", pRechercheTicket.getAuteurId());
             }
             if (pRechercheTicket.getProjetId() != null) {
-            	vSQLBuilder.append(" AND projet_id = :projet_id");
+            	vSQLBuilder.append(" AND t.projet_id = :projet_id");
                 vParams.addValue("projet_id", pRechercheTicket.getProjetId());
             }
         }        
 
         List<Ticket> ticketList = getNamedParamJdbcTemplate()
         		.query(vSQLBuilder.toString(), vParams, TicketRM.ROWMAPPERTICKET);
+        
+        if (ticketList.isEmpty()) {
+			LOGGER.info("Tickets inexistants");
+		}
         return ticketList;
         
     }

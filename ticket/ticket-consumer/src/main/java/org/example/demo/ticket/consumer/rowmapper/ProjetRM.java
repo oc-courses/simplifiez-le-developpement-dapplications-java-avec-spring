@@ -15,7 +15,8 @@ public class ProjetRM {
 			vProj.setNom(rs.getString("nom"));
 			vProj.setDateCreation(rs.getDate("date_creation"));
 			vProj.setCloture(rs.getBoolean("cloture"));
-			user.setId(rs.getInt("responsable_id"));
+			user.setId(rs.getInt("resp_id"));
+			user.setNom(rs.getString("responsable"));
 			vProj.setResponsable(user);
 			return vProj;
 		};
