@@ -36,7 +36,7 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 		
 		vSQLBuilder.append(" AND p.id = :id ");
 		vParams.addValue("id", pId);
-		
+		LOGGER.info("SQL-Cmd: "+vSQLBuilder.toString());
 	
 		List<Projet> vProjets = getNamedParamJdbcTemplate()
 				.query(vSQLBuilder.toString(), vParams, ProjetRM.ROWMAPPERPROJ);
