@@ -100,6 +100,15 @@
 	        <groupId>org.junit.jupiter</groupId>
 	        <artifactId>junit-jupiter-engine</artifactId>
 	    </dependency>
+
+		<!-- ===== Pour éviter l'erreur "The type org.hamcrest.Matcher cannot be resolved. 
+		           It is indirectly referenced from required .class files"
+		           Il s'agit ici d'un appel indirect d'une Methode ds org.harmcrest.Matcher ===== -->
+	    <dependency>
+	    	<groupId>org.hamcrest</groupId>
+	    	<artifactId>hamcrest-library</artifactId>
+	    	<scope>test</scope>
+		</dependency>
         
     </dependencies>
 
