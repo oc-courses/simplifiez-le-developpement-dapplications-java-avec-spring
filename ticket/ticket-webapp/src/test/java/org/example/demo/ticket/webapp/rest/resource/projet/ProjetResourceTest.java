@@ -9,12 +9,13 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.example.demo.ticket.webapp.configuration.SpringConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 
-@SpringJUnitWebConfig(locations = "test-servlet-context.xml")
+@SpringJUnitWebConfig(classes = SpringConfiguration.class)
 public class ProjetResourceTest {
 
 	MockMvc mockMvc;
@@ -28,7 +29,7 @@ public class ProjetResourceTest {
 	public void getAccount() throws Exception {
 		this.mockMvc.perform(get("/accounts/1").accept(MediaType.APPLICATION_JSON))
 							.andExpect(status().isOk())
-							.andExpect(content().contentType("application/json"));
-							//.andExpect(jsonPath("$.name").value("Lee"));
+							.andExpect(content().contentType("application/json"))
+							.andExpect(jsonPath("$.name").value("Lee"));
 	}
 }
