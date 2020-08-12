@@ -74,6 +74,27 @@
             <artifactId>jersey-hk2</artifactId>
         </dependency>
         
+        <!-- ====== HTTP-Client =====-->
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.5</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.9</version>
+            <scope>test</scope>
+        </dependency>
+        
         <!-- ====== SPRING TEST =====-->
 		<dependency>
 		    <groupId>org.springframework</groupId>
