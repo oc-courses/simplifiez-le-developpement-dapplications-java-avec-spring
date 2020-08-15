@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Récupération de la ressource JNDI :
+         javax.sql.DataSource pour la base de données DB_TICKET -->
+    <bean id="dataSourceTicket" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/DB_TICKET" />
+    </bean>
+		
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.example.demo.ticket.webapp.rest.resource.AbstractResource" />
+		<property name="targetMethod" value="setManagerFactory" />
+		<property name="arguments" ref="managerFactory" />
+	</bean>
+</beans>
